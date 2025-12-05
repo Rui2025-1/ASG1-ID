@@ -1,6 +1,7 @@
 @media (max-width: 768px) {
   body {
     font-size: 14px;
+    font-family: 'Roboto', sans-serif;
   }
   .service {
     flex-direction: column;
