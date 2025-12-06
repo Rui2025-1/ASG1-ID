@@ -1,39 +1,55 @@
-<!-- In HTML head -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Divergent Divers</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">Divergent Divers</div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#promo">Promotions</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <!-- Hero Section -->
-  <header>
-    <h1>Welcome to Divergent Divers</h1>
-    <p>Your trusted partner in success.</p>
-    <button class="cta">Get Started</button>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Divergent Divers</h1>
+      <p>Your trusted partner in success.</p>
+      <button class="cta">Get Started</button>
+    </div>
   </header>
-  
+
   <!-- Services -->
-  <section id="services">
+  <section id="services" class="section">
     <h2>Our Services</h2>
-    <div class="service">Web Development</div>
-    <div class="service">Digital Marketing</div>
-    <div class="service">Consulting</div>
+    <div class="services-container">
+      <div class="service card">Web Development</div>
+      <div class="service card">Digital Marketing</div>
+      <div class="service card">Consulting</div>
+    </div>
   </section>
 
   <!-- Testimonials -->
-  <section id="testimonials">
+  <section id="testimonials" class="section light-bg">
     <h2>What Our Clients Say</h2>
-    <blockquote>"Amazing service, highly recommend!" - Jane D.</blockquote>
-    <blockquote>"Professional and reliable." - John S.</blockquote>
+    <blockquote class="card">"Amazing service, highly recommend!" – Jane D.</blockquote>
+    <blockquote class="card">"Professional and reliable." – John S.</blockquote>
   </section>
 
   <!-- Promotions -->
-  <section id="promo"> 
+  <section id="promo" class="section">
     <h2>Special Offer</h2>
     <input type="text" id="promoCode" placeholder="Enter promo code">
     <button onclick="applyPromo()">Apply</button>
@@ -41,7 +57,7 @@
   </section>
 
   <!-- Contact -->
-  <footer>  
+  <footer id="contact" class="footer">
     <h2>Contact Us</h2>
     <p>Email: info@DivergentDivers.com | Phone: +65 8700 1589</p>
   </footer>
