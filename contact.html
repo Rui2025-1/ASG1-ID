@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Get in Touch</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="brand">Divergent Divers</div>
+    <button id="mobile-nav-toggle-4" class="mobile-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle menu">☰</button>
+    <nav id="main-nav" class="nav" role="navigation" aria-label="Main navigation">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="services.html">Services</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link active" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <main class="main container">
+    <section class="reveal" data-reveal>
+      <h1>Get in Touch</h1>
+      <p class="lead">Have questions? Ready to book? We’d love to hear from you.</p>
+
+      <h2>Visit Us</h2>
+        <p>22 Coral Reef Drive, Singapore 498765</p>
+
+    <h3>Call Us</h3>
+        <p>+65 6123 4567</p>
+        <p>Mon-Fri: 9am - 6pm | Sat: 10am - 4pm | Sun: Closed</p>
+
+    <h4>Email Us</h4>
+        <p>info@divergentdivers.com</p>
+      <form id="contactForm" class="contact-form" novalidate>
+        <label>
+          Name
+          <input name="name" type="text" required placeholder="Your name">
+        </label>
+
+        <label>
+          Email
+          <input name="email" type="email" required placeholder="you@example.com">
+        </label>
+
+        <label>
+          Message
+          <textarea name="message" rows="6" required placeholder="Tell us a little about what you'd like..."></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary ripple">Send message</button>
+          <div id="formFeedback" class="form-feedback" role="status" aria-live="polite"></div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>Contact: info@divergentdivers.com | +65 6123 4567 | 22 Coral Reef Drive, SG</div>
+    <small>© 2025 Divergent Divers</small>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

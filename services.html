@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Our Services </title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Divergent Divers services and dive planner." />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="brand">Divergent Divers</div>
+    <button id="mobile-nav-toggle-2" class="mobile-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle menu">☰</button>
+    <nav id="main-nav" class="nav" role="navigation" aria-label="Main navigation">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link active" href="services.html">Services</a>
+      <a class="nav-link" href="about.html">About</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <main class="main">
+    <section class="content container reveal" data-reveal>
+      <h1>Our Services</h1>
+      <p class="lead">From your first breadth underwater to professional level training, we offer a full range of diving experiences tailored to your needs.</p>
+
+      <div class="service-grid">
+        <div class="service card reveal" data-reveal>
+          <h3>Open Water Courses</h3>
+          <p>The world's most popular scuba course. Includes theory, pool sessions, and 4 open water dives.</p>
+          <button class="btn ripple">Book Adventure ></button>
+        </div>
+
+        <div class="service card reveal" data-reveal>
+          <h3>Advanced Adventurer</h3>
+          <p>Explore new environments. Includes deep dive, navigation, and 3 adventure dives of your choice.</p>
+          <button class="btn ripple">Book Adventure ></button>
+        </div>
+
+        <div class="service card reveal" data-reveal>
+          <h3>Rescue Diver </h3>
+          <p>Learn to prevent and manage problems in the water. The most challenging and rewarding course.</p>
+          <button class="btn ripple">Book Adventure ></button>
+        </div>
+
+        <div class="service card reveal" data-reveal>
+          <h3>Guided Reef Exploration</h3>
+          <p>Daily boat trips to the most spectacular reefs. Small groups guaranteed.</p>
+          <button class="btn ripple">Book Adventure ></button>
+        </div>
+
+        <div class="service card reveal" data-reveal>
+          <h3>Underwater Photography</h3>
+          <p>Master the art of underwater photography with our specialist instructors.</p>
+          <button class="btn ripple">Book Adventure ></button>
+        </div>
+
+        <div class="service card reveal" data-reveal>
+          <h3>Night Dive Experience</h3>
+          <p>See the ocean come alive at night. Witness bioluminescence and nocturnal marine life.</p>
+          <button class="btn ripple">Book Adventure ></button>
+        </div>
+
+        <div class="service card reveal" data-reveal>
+          <h3>Premium Gear Rental</h3>
+          <p>Don't have your own gear? No problem. We stock the latest Aqualung and Scubapro equipment, serviced regularly to ensure your safety and comfort.</p>  
+            <button class="btn ripple">Reserve Gear ></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADVANCED FEATURE: Dive Planner -->
+    <section class="planner container reveal" data-reveal>
+      <h2>Choose your Coach(demo)</h2>
+      <p class="muted">Choose your preferred coach for your next session - leave the rest to us.</p>
+
+      <form id="divePlanner" class="planner-form" aria-label="Dive planner">
+        <label>
+          Coaches
+          <select name="coach">
+            <option value="beginner">Capt. James Morgan</option>
+            <option value="intermediate">Elena Rodriguez</option>
+            <option value="advanced">David Kim</option>
+          </select>
+        </label>
+
+        <label>
+          Date
+          <input type="date" name="date" />
+        </label>
+
+          <button type="button" id="savePlan" class="btn subtle ripple">Save Coach</button>
+        </div>
+      </form>
+
+  
+      <h3>Saved Coaches</h3>
+      <ul id="savedCoaches" class="saved-coaches"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>Contact: info@divergentdivers.com | +65 6123 4567 | 22 Coral Reef Drive, SG</div>
+    <small>© 2025 Divergent Divers</small>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

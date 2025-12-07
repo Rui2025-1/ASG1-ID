@@ -1,27 +1,55 @@
-function applyPromo() {
-  const code = document.getElementById("promoCode").value.trim();
-  const message = document.getElementById("promoMessage");
+/* ---------------------------------------------------------
+   NAVIGATION LOGIC
+   When a button is clicked, show that section.
+   That’s it — simple on purpose.
+--------------------------------------------------------- */
 
-  if (code === "WELCOME10") {
-    message.textContent = "Promo applied! You get 10% off your first purchase.";
-    message.style.color = "green";
-  } 
-  else if (code === "LUCKY30") {
-    message.textContent = "Promo applied! You get 30% off on your 5th order.";
-    message.style.color = "green";
-  }
-  else {
-    message.textContent = "Invalid code. Try again!";
-    message.style.color = "red";
-  }
-}
+// Turning the NodeLists into arrays helps Safari behave
+const navButtons = Array.from(document.querySelectorAll(".nav-btn"));
+const sections = Array.from(document.querySelectorAll(".section"));
 
-// Scroll animation
-window.addEventListener("scroll", () => {
-  document.querySelectorAll(".service").forEach(service => {
-    const top = service.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      service.classList.add("visible");
-    }
-  });
+navButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+
+        // Highlight the clicked button
+        navButtons.forEach((b) => b.classList.remove("active"));
+        button.classList.add("active");
+
+        const targetID = button.getAttribute("data-section");
+
+        // Hide all sections first
+        sections.forEach((sec) => {
+            sec.classList.remove("visible");
+            sec.setAttribute("aria-hidden", "true");
+        });
+
+        // Then show the one we want
+        const activeSection = document.getElementById(targetID);
+        activeSection.classList.add("visible");
+        activeSection.setAttribute("aria-hidden", "false");
+
+        // On phones, keep the experience smooth by scrolling to top
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
 });
+
+/* ---------------------------------------------------------
+   CONTACT FORM FEEDBACK
+   Since there's no backend, we just give friendly confirmation.
+--------------------------------------------------------- */
+
+const form = document.getElementById("contactForm");
+
+if (form) {
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        alert("Thanks for reaching out! We'll get back to you as soon as we can 😊");
+
+        // Clears inputs so the user feels they've made progress
+        form.reset();
+    });
+}
