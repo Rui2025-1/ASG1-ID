@@ -1,68 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Divergent Divers</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Divergent Divers</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="logo">Divergent Divers</div>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#promo">Promotions</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">Divergent Divers</div>
 
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="hero-content">
-      <h1>Welcome to Divergent Divers</h1>
-      <p>Your trusted partner in success.</p>
-      <button class="cta">Get Started</button>
-    </div>
-  </header>
+        <nav class="nav-links">
+            <button class="nav-btn active" data-section="home">Home</button>
+            <button class="nav-btn" data-section="services">Services</button>
+            <button class="nav-btn" data-section="about">About Us</button>
+            <button class="nav-btn" data-section="contact">Contact</button>
+        </nav>
+    </header>
 
-  <!-- Services -->
-  <section id="services" class="section">
-    <h2>Our Services</h2>
-    <div class="services-container">
-      <div class="service card">Web Development</div>
-      <div class="service card">Digital Marketing</div>
-      <div class="service card">Consulting</div>
-    </div>
-  </section>
+    <!-- Sections -->
+    <main>
 
-  <!-- Testimonials -->
-  <section id="testimonials" class="section light-bg">
-    <h2>What Our Clients Say</h2>
-    <blockquote class="card">"Amazing service, highly recommend!" – Jane D.</blockquote>
-    <blockquote class="card">"Professional and reliable." – John S.</blockquote>
-  </section>
+        <!-- HOME -->
+        <section id="home" class="section visible">
+            <h1>Welcome to Divergent Divers</h1>
+            <p>
+                Whether you're dipping your toes into the world of diving or 
+                you're already a seasoned ocean explorer, we’re here to guide you.  
+                Let’s discover your next underwater story together.
+            </p>
+        </section>
 
-  <!-- Promotions -->
-  <section id="promo" class="section">
-    <h2>Special Offer</h2>
-    <input type="text" id="promoCode" placeholder="Enter promo code">
-    <button onclick="applyPromo()">Apply</button>
-    <p id="promoMessage"></p>
-  </section>
+        <!-- SERVICES -->
+        <section id="services" class="section">
+            <h1>Our Services</h1>
+            <ul class="service-list">
+                <li><strong>Beginner Diving Courses</strong> — friendly instructors & safe introduction.</li>
+                <li><strong>Open Water Certification</strong> — learn the skills, earn the card, explore the deep.</li>
+                <li><strong>Guided Dive Trips</strong> — curated sites, great visibility, lots of ocean life.</li>
+                <li><strong>Equipment Rental</strong> — clean, reliable, well-maintained gear.</li>
+            </ul>
+        </section>
 
-  <!-- Contact -->
-  <footer id="contact" class="footer">
-    <h2>Contact Us</h2>
-    <p>Email: info@DivergentDivers.com | Phone: +65 8700 1589</p>
-  </footer>
+        <!-- ABOUT -->
+        <section id="about" class="section">
+            <h1>About Us</h1>
+            <p>
+                We’re a small team of ocean lovers who started Divergent Divers with a simple idea:
+                diving should feel personal, safe, and unforgettable.  
+                No rush. No pressure. Just you, the water, and people who love what they do.
+            </p>
+        </section>
 
-  <script src="script.js"></script>
+        <!-- CONTACT -->
+        <section id="contact" class="section">
+            <h1>Contact Us</h1>
+            <p>Got questions? Reach out — we're happy to help you start your diving journey.</p>
+
+            <form id="contactForm" class="contact-form">
+                <input type="text" required placeholder="Your Name">
+                <input type="email" required placeholder="Your Email">
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <p class="contact-details">
+                📍 22 Coral Reef Drive, Singapore  
+                📞 +65 6123 4567  
+                ✉️ contact@divergentdivers.com
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Divergent Divers — Dive safe, dive happy 🌊
+    </footer>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
-
