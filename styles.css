@@ -1,224 +1,167 @@
-/* ---------------------------------------------------------
-   GLOBAL BASELINE
-   A clean slate so the site looks consistent everywhere.
---------------------------------------------------------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent; /* prevents the blue highlight on mobile taps */
+/* -------------------------
+   Divergent Divers — styles
+   Human-friendly, accessible, microinteractions included
+   Cross-browser safe with sensible fallbacks
+   ------------------------- */
+:root{
+  --accent:#0077b6;
+  --accent-2:#49a6e9;
+  --muted:#5c6b76;
+  --bg:rgb(14, 146, 199);
+  --card:#ffffff;
+  --radius:12px;
+  --glass: rgba(255,255,255,0.6);
+  --max-width:1100px;
 }
 
-/* A gentle color palette and readable font stack */
-body {
-    background: #f5faff;
-    color: #083049;
-    line-height: 1.6;
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+/* Basic resets */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background:var(--bg);
+  color:#042b3b;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding-bottom:40px;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* ---------------------------------------------------------
-   NAVIGATION BAR
-   Simple, warm, and keeps everything reachable on any device.
---------------------------------------------------------- */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    background: #e8f4ff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-
-    /* Sticky is supported widely, but Safari wants its prefix */
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    z-index: 9999;
+/* Header / nav */
+.site-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:14px 28px;
+  background:linear-gradient(90deg, rgba(255,255,255,0.85), rgba(255,255,255,0.75));
+  backdrop-filter: blur(6px);
+  border-bottom:1px solid rgba(6,30,40,0.04);
+  position:sticky;
+  top:0;
+  z-index:50;
 }
 
-.logo {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #005f8f;
-    white-space: nowrap; /* prevents wrapping on small screens */
+.brand{
+  font-weight:700;
+  color:var(--accent);
+  font-size:1.4rem;
 }
 
-/* The navigation buttons should feel light and friendly */
-.nav-links {
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap; /* helps prevent overflow on mobile */
+/* nav */
+.nav{display:flex;gap:14px;align-items:center}
+.nav-link{
+  padding:8px 12px;
+  border-radius:10px;
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:600;
+  transition:transform .18s ease, background .18s ease, color .18s ease;
 }
 
-.nav-btn {
-    background: none;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 1rem;
-
-    /* Soft transitions feel more human */
-    transition: 0.25s ease;
-    -webkit-transition: 0.25s ease;
+/* hover microinteraction: lift slightly and tint */
+.nav-link:hover{
+  transform: translateY(-3px);
+  background: rgba(7,119,182,0.06);
+  color: var(--accent);
 }
 
-.nav-btn:hover {
-    background: #d8ecff;
+/* active page highlight */
+.nav-link.active{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:white;
+  box-shadow: 0 6px 18px rgba(6,30,40,0.08);
 }
 
-.nav-btn.active {
-    background: #bfe2ff;
-    font-weight: 600;
+/* mobile toggle */
+.mobile-toggle{
+  display:none;
+  background:none;border:none;font-size:20px;
 }
 
-/* ---------------------------------------------------------
-   SECTIONS
-   Each page fades in gently when selected.
---------------------------------------------------------- */
-main {
-    padding: 40px 20px;
+/* scroll progress indicator (thin bar at top of each page) */
+#scroll-progress{
+  position:fixed;left:0;top:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  width:0;z-index:60;transition:width .12s linear;
 }
 
-/* Hidden by default */
-.section {
-    display: none;
-    animation: fadeIn 0.5s ease;
-    -webkit-animation: fadeIn 0.5s ease; /* Safari */
+/* main */
+.main{max-width:var(--max-width);margin:28px auto;padding:0 20px}
+
+/* hero */
+.hero{
+  background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:0 10px 28px rgba(6,30,40,0.06);
+  margin-bottom:20px;
 }
 
-/* The visible one is shown */
-.section.visible {
-    display: block;
+.lead{color:var(--muted);font-size:1.05rem}
+
+/* cards & grid */
+.container{margin-top:12px}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(6,30,40,0.04);transition:transform .22s cubic-bezier(.2,.9,.3,1), box-shadow .22s;}
+.card:hover{transform: translateY(-6px); box-shadow:0 20px 40px rgba(6,30,40,0.08)}
+
+/* subtle button system */
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;border:none;background:transparent;cursor:pointer;font-weight:700;color:var(--accent);text-decoration:none;}
+.btn.primary, .btn.primary.ripple{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;box-shadow:0 8px 20px rgba(6,30,40,0.08)}
+.btn.subtle{background:rgba(7,119,182,0.06);color:var(--accent)}
+.btn:hover{transform:translateY(-3px) scale(1.01);}
+
+/* input styles */
+input,textarea,select{
+  width:100%;padding:10px;border-radius:10px;border:1px solid #d9edf9;background:white;font-size:1rem;
+  transition:box-shadow .12s ease,border-color .12s ease;
+}
+input:focus,textarea:focus,select:focus{outline:none;box-shadow:0 6px 18px rgba(7,119,182,0.08);border-color:var(--accent)}
+
+/* planner layout */
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.planner{margin-top:20px;background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.98));padding:18px;border-radius:12px}
+.planner-form{display:grid;gap:12px;max-width:540px}
+.planner-actions{display:flex;gap:10px}
+
+/* planner result */
+.planner-result{margin-top:12px;padding:12px;border-radius:10px;background:linear-gradient(90deg,#f8feff,#f2fbff);border:1px solid #e2f5ff}
+.saved-plans{margin-top:10px;padding-left:18px}
+
+/* team grid */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.profile img{width:100%;height:auto;border-radius:10px;display:block;margin-bottom:8px}
+
+/* testimonial */
+.testimonial{margin:24px 0;padding:18px;border-left:4px solid var(--accent);background:linear-gradient(180deg,#fff,#fbfeff);}
+
+/* reveal anim (for scroll) */
+.reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.3,1)}
+.revealed{opacity:1;transform:none}
+
+/* small helpers */
+.muted{color:var(--muted);font-size:.95rem}
+.container small{color:var(--muted)}
+
+/* footer */
+.site-footer{padding:18px 28px;text-align:center;color:var(--muted);border-top:1px solid rgba(6,30,40,0.03);background:linear-gradient(180deg,rgba(255,255,255,0.6),transparent);position:relative;margin-top:30px}
+
+/* ripple effect placeholder */
+.ripple{position:relative;overflow:hidden}
+
+/* ripple pseudo-element (created dynamically by JS) */
+.ripple .ripple-ink{position:absolute;border-radius:50%;transform:scale(0);opacity:.7;pointer-events:none;animation:ripple .6s linear}
+@keyframes ripple{to{transform:scale(4);opacity:0}}
+
+/* responsive */
+@media (max-width:700px){
+  .nav{display:none} /* mobile nav replaced by hamburger controlled in JS */
+  .mobile-toggle{display:block}
+  .main{padding:0 14px}
 }
 
-/* Friendly fade-in animation */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-@-webkit-keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* ---------------------------------------------------------
-   SERVICES
---------------------------------------------------------- */
-.service-list {
-    margin-top: 15px;
-    padding-left: 20px;
-    list-style: circle;
-}
-
-/* ---------------------------------------------------------
-   CONTACT FORM
-   Clean, simple, and easy on the eyes.
---------------------------------------------------------- */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 20px;
-    max-width: 400px;
-    width: 100%;
-}
-
-.contact-form input,
-.contact-form textarea {
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #c2d9ef;
-    background: #fff;
-
-    /* Helps iOS behave */
-    -webkit-appearance: none;
-    font-size: 1rem;
-}
-
-.contact-form textarea {
-    resize: vertical;
-}
-
-/* Button with a little personality */
-.contact-form button {
-    background: #007dc3;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.25s ease;
-}
-
-.contact-form button:hover {
-    background: #005a8d;
-}
-
-/* ---------------------------------------------------------
-   CONTACT DETAILS
---------------------------------------------------------- */
-.contact-details {
-    margin-top: 20px;
-    font-size: 0.95rem;
-    color: #074363;
-}
-
-/* ---------------------------------------------------------
-   FOOTER
---------------------------------------------------------- */
-footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    color: #0a4c6b;
-    background: #e8f4ff;
-}
-
-/* ---------------------------------------------------------
-   RESPONSIVE VALUES
-   A few small tweaks to ensure phone and tablet layouts feel good.
---------------------------------------------------------- */
-
-/* Tablets */
-@media (max-width: 900px) {
-    .navbar { padding: 15px 20px; }
-}
-
-/* Phones */
-@media (max-width: 600px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-
-    /* Turns the nav into a friendly two-column grid */
-    .nav-links {
-        width: 100%;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .nav-btn {
-        flex: 1 1 calc(50% - 10px);
-        text-align: center;
-    }
-
-    main {
-        padding: 25px 15px;
-    }
-}
-
-/* ---------------------------------------------------------
-   ACCESSIBILITY
-   Respect users who prefer reduced motion.
---------------------------------------------------------- */
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation: none !important;
-        transition: none !important;
-    }
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .reveal, .card, .nav-link, .btn { transition:none !important; animation:none !important; }
 }
